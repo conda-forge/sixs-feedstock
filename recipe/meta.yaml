@@ -12,16 +12,17 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
     - cmake
-    - m2w64-toolchain  # [win]
-    - gcc  # [not win]
+    - {{ compiler('fortran') }}        # [unix]
+    - {{ compiler('m2w64_fortran') }}  # [win]
+    - {{ compiler('c') }}        # [unix]
+    - {{ compiler('m2w64_c') }}  # [win]
+  host:
   run:
-    - libgfortran  # [not win]
-    - libgcc  # [linux]
     - m2w64-gcc-libgfortran  # [win]
 
 
