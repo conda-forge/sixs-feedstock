@@ -6,6 +6,7 @@ jobs:
 - job: osx
   pool:
     vmImage: macOS-10.13
+<<<<<<< HEAD
   timeoutInMinutes: 360
   strategy:
     maxParallel: 8
@@ -16,6 +17,15 @@ jobs:
       osx_fortran_compiler_version7:
         CONFIG: osx_fortran_compiler_version7
         UPLOAD_PACKAGES: True
+=======
+  timeoutInMinutes: 240
+  strategy:
+    maxParallel: 8
+    matrix:
+      osx_:
+        CONFIG: osx_
+        UPLOAD_PACKAGES: False
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04
 
   steps:
   # TODO: Fast finish on azure pipelines?
@@ -31,6 +41,7 @@ jobs:
       rm ~/uninstall_homebrew
     displayName: Remove homebrew
 
+<<<<<<< HEAD
   - bash: |
       echo "##vso[task.prependpath]$CONDA/bin"
       sudo chown -R $USER $CONDA
@@ -38,15 +49,39 @@ jobs:
 
   - script: |
       source activate base
+=======
+  - script: |
+      echo "Installing Miniconda"
+      set -x -e
+      curl -o $(Build.StagingDirectory)/miniconda.sh https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+      chmod +x $(Build.StagingDirectory)/miniconda.sh
+      $(Build.StagingDirectory)/miniconda.sh -b -p $(Build.StagingDirectory)/miniconda
+      export PATH=$(Build.StagingDirectory)/miniconda/bin:$PATH
+      echo "Setting up Conda environment"
+    displayName: 'Install miniconda'
+
+  - script: |
+      export PATH=$(Build.StagingDirectory)/miniconda/bin:$PATH
+      set -x -e
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04
       conda install -n base -c conda-forge --quiet --yes conda-forge-ci-setup=2 conda-build
     displayName: 'Add conda-forge-ci-setup=2'
 
   - script: |
+<<<<<<< HEAD
       source activate base
       echo "Configuring conda."
 
       setup_conda_rc ./ ./recipe ./.ci_support/${CONFIG}.yaml
       export CI=azure
+=======
+      set -x -e
+      export PATH=$(Build.StagingDirectory)/miniconda/bin:$PATH
+      echo "Configuring conda."
+
+      setup_conda_rc ./ ./recipe ./.ci_support/${CONFIG}.yaml
+
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04
       source run_conda_forge_build_setup
       conda update --yes --quiet --override-channels -c conda-forge -c defaults --all
     env: {
@@ -55,22 +90,42 @@ jobs:
     displayName: Configure conda and conda-build
 
   - script: |
+<<<<<<< HEAD
       source activate base
+=======
+      export PATH=$(Build.StagingDirectory)/miniconda/bin:$PATH
+      set -x -e
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04
       mangle_compiler ./ ./recipe ./.ci_support/${CONFIG}.yaml
     displayName: Mangle compiler
 
   - script: |
+<<<<<<< HEAD
       source activate base
+=======
+      export PATH=$(Build.StagingDirectory)/miniconda/bin:$PATH
+      set -x -e
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04
       make_build_number ./ ./recipe ./.ci_support/${CONFIG}.yaml
     displayName: Generate build number clobber file
 
   - script: |
+<<<<<<< HEAD
       source activate base
+=======
+      export PATH=$(Build.StagingDirectory)/miniconda/bin:$PATH
+      set -x -e
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04
       conda build ./recipe -m ./.ci_support/${CONFIG}.yaml --clobber-file ./.ci_support/clobber_${CONFIG}.yaml
     displayName: Build recipe
 
   - script: |
+<<<<<<< HEAD
       source activate base
+=======
+      export PATH=$(Build.StagingDirectory)/miniconda/bin:$PATH
+      set -x -e
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04
       upload_package ./ ./recipe ./.ci_support/${CONFIG}.yaml
     displayName: Upload recipe
     env:

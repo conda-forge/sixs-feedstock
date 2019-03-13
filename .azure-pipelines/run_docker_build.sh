@@ -10,6 +10,9 @@ set -xeo pipefail
 THISDIR="$( cd "$( dirname "$0" )" >/dev/null && pwd )"
 PROVIDER_DIR="$(basename $THISDIR)"
 
+THISDIR="$( cd "$( dirname "$0" )" >/dev/null && pwd )"
+PROVIDER_DIR="$(basename $THISDIR)"
+
 FEEDSTOCK_ROOT=$(cd "$(dirname "$0")/.."; pwd;)
 RECIPE_ROOT="${FEEDSTOCK_ROOT}/recipe"
 
@@ -38,6 +41,7 @@ if [ -z "$CONFIG" ]; then
     exit 1
 fi
 
+<<<<<<< HEAD:.azure-pipelines/run_docker_build.sh
 if [ -z "${DOCKER_IMAGE}" ]; then
     SHYAML_INSTALLED="$(shyaml -h || echo NO)"
     if [ "${SHYAML_INSTALLED}" == "NO" ]; then
@@ -47,15 +51,24 @@ if [ -z "${DOCKER_IMAGE}" ]; then
         DOCKER_IMAGE="$(cat "${FEEDSTOCK_ROOT}/.ci_support/${CONFIG}.yaml" | shyaml get-value docker_image.0 condaforge/linux-anvil-comp7 )"
     fi
 fi
+=======
+pip install shyaml
+DOCKER_IMAGE=$(cat "${FEEDSTOCK_ROOT}/.ci_support/${CONFIG}.yaml" | shyaml get-value docker_image.0 condaforge/linux-anvil-comp7 )
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04:.circleci/run_docker_build.sh
 
 mkdir -p "$ARTIFACTS"
 DONE_CANARY="$ARTIFACTS/conda-forge-build-done-${CONFIG}"
 rm -f "$DONE_CANARY"
+# Enable running in interactive mode attached to a tty
+DOCKER_RUN_ARGS=" -it "
 
+<<<<<<< HEAD:.azure-pipelines/run_docker_build.sh
 if [ -z "${CI}" ]; then
     DOCKER_RUN_ARGS="-it "
 fi
 
+=======
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04:.circleci/run_docker_build.sh
 export UPLOAD_PACKAGES="${UPLOAD_PACKAGES:-True}"
 docker run ${DOCKER_RUN_ARGS} \
            -v "${RECIPE_ROOT}":/home/conda/recipe_root:ro,z \
@@ -64,7 +77,10 @@ docker run ${DOCKER_RUN_ARGS} \
            -e BINSTAR_TOKEN \
            -e HOST_USER_ID \
            -e UPLOAD_PACKAGES \
+<<<<<<< HEAD:.azure-pipelines/run_docker_build.sh
            -e CI \
+=======
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04:.circleci/run_docker_build.sh
            $DOCKER_IMAGE \
            bash \
            /home/conda/feedstock_root/${PROVIDER_DIR}/build_steps.sh

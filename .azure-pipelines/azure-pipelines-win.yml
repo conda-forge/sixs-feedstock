@@ -6,7 +6,11 @@ jobs:
 - job: win
   pool:
     vmImage: vs2017-win2016
+<<<<<<< HEAD
   timeoutInMinutes: 360
+=======
+  timeoutInMinutes: 240
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04
   strategy:
     maxParallel: 4
     matrix:
@@ -65,11 +69,19 @@ jobs:
 
     # Configure the VM
     - script: setup_conda_rc .\ .\recipe .\.ci_support\%CONFIG%.yaml
+<<<<<<< HEAD
 
     # Configure the VM.
     - script: |
         set "CI=azure"
         run_conda_forge_build_setup
+=======
+    
+    # Configure the VM.
+    - script: |
+        run_conda_forge_build_setup
+
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04
       displayName: conda-forge build setup
     
 
