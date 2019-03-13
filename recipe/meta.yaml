@@ -1,15 +1,15 @@
-{% set version = "1.1" %}
+{% set version = "1.1.2" %}
 
 package:
   name: sixs
   version: {{ version }}
 
 source:
-  url: https://bitbucket.org/petebunting/6s/get/Version%20{{ version}}.tar.gz
-  sha256: 4253664bfed35a659ac602d4472780df7c665d67021d495327f47eb7325a2d7e
+  url: https://bitbucket.org/petebunting/6s/downloads/sixs-{{ version }}.tar.gz
+  sha256: 499559146199471fee99eff0ed603ecb0f7d7cf5a0011436edfcb969d641d683
 
 build:
-  number: 1002
+  number: 0
 
 requirements:
   build:
