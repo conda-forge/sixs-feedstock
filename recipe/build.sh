@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# Avoid weird messages that confuse py6s
-# export FFLAGS="-ffpe-summary=none"
-export FFLAGS="-g $FFLAGS"
+export FFLAGS=$(echo "${FFLAGS}" | sed "s/-fopenmp//g")
 
 cmake -D CMAKE_INSTALL_PREFIX=$PREFIX $SRC_DIR
 
