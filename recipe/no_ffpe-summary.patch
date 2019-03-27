@@ -1,0 +1,13 @@
+--- CMakeLists.txt.orig	2018-07-10 06:56:10.000000000 -0300
++++ CMakeLists.txt	2019-03-27 09:22:10.469263566 -0300
+@@ -39,8 +39,8 @@
+ 
+ if (Fortran_COMPILER_NAME MATCHES "gfortran.*")
+   # gfortran
+-  set (CMAKE_Fortran_FLAGS_RELEASE "-ffpe-summary='none' -funroll-all-loops -std=legacy -ffixed-line-length-none -fno-f2c -O3")
+-  set (CMAKE_Fortran_FLAGS_DEBUG   "-ffpe-summary='none' -fno-f2c -O0 -g -std=legacy -ffixed-line-length-none")
++  set (CMAKE_Fortran_FLAGS_RELEASE "-funroll-all-loops -std=legacy -ffixed-line-length-none -fno-f2c -O3")
++  set (CMAKE_Fortran_FLAGS_DEBUG   "fno-f2c -O0 -g -std=legacy -ffixed-line-length-none")
+ elseif (Fortran_COMPILER_NAME MATCHES "ifort.*")
+   # ifort (untested)
+   set (CMAKE_Fortran_FLAGS_RELEASE "-f77rtl -O3 -fPIC -static-intel ")
