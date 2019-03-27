@@ -3,8 +3,8 @@
 export FFLAGS=$(echo "${FFLAGS}" | sed "s/-fopenmp//g")
 
 
-if [[ $(uname) == Linux ]]; then
-  export FFLAGS="-ffpe-summary=none ${FFLAGS}"
+if [[ $(uname) == Darwin ]]; then
+  export FFLAGS=$(echo "${FFLAGS}" | sed "s/-ffpe-summary=none//g")
 fi
 
 cmake -D CMAKE_INSTALL_PREFIX=$PREFIX $SRC_DIR
