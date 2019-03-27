@@ -7,15 +7,20 @@ jobs:
   pool:
     vmImage: ubuntu-16.04
 <<<<<<< HEAD
+<<<<<<< HEAD
   timeoutInMinutes: 360
 =======
   timeoutInMinutes: 240
 >>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04
+=======
+  timeoutInMinutes: 360
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.3.2, and conda-forge-pinning 2019.03.18
   strategy:
     maxParallel: 8
     matrix:
       linux_:
         CONFIG: linux_
+<<<<<<< HEAD
 <<<<<<< HEAD
         UPLOAD_PACKAGES: True
         DOCKER_IMAGE: condaforge/linux-anvil-comp7
@@ -23,14 +28,21 @@ jobs:
   # configure qemu binfmt-misc running.  This allows us to run docker containers
 =======
         UPLOAD_PACKAGES: False
+=======
+        UPLOAD_PACKAGES: True
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.3.2, and conda-forge-pinning 2019.03.18
   steps:
   - script: |
       sudo pip install --upgrade pip
       sudo pip install setuptools shyaml
     displayName: Install dependencies
 
+<<<<<<< HEAD
   # configure qemu binfmt-misc running.  This allows us to run docker containers 
 >>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04
+=======
+  # configure qemu binfmt-misc running.  This allows us to run docker containers
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.3.2, and conda-forge-pinning 2019.03.18
   # embedded qemu-static
   - script: |
       docker run --rm --privileged multiarch/qemu-user-static:register --reset --credential yes

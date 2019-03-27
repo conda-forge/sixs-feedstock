@@ -7,6 +7,7 @@ jobs:
   pool:
     vmImage: macOS-10.13
 <<<<<<< HEAD
+<<<<<<< HEAD
   timeoutInMinutes: 360
   strategy:
     maxParallel: 8
@@ -19,13 +20,20 @@ jobs:
         UPLOAD_PACKAGES: True
 =======
   timeoutInMinutes: 240
+=======
+  timeoutInMinutes: 360
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.3.2, and conda-forge-pinning 2019.03.18
   strategy:
     maxParallel: 8
     matrix:
       osx_:
         CONFIG: osx_
+<<<<<<< HEAD
         UPLOAD_PACKAGES: False
 >>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04
+=======
+        UPLOAD_PACKAGES: True
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.3.2, and conda-forge-pinning 2019.03.18
 
   steps:
   # TODO: Fast finish on azure pipelines?
@@ -42,10 +50,14 @@ jobs:
     displayName: Remove homebrew
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.3.2, and conda-forge-pinning 2019.03.18
   - bash: |
       echo "##vso[task.prependpath]$CONDA/bin"
       sudo chown -R $USER $CONDA
     displayName: Add conda to PATH
+<<<<<<< HEAD
 
   - script: |
       source activate base
@@ -77,6 +89,16 @@ jobs:
 =======
       set -x -e
       export PATH=$(Build.StagingDirectory)/miniconda/bin:$PATH
+=======
+
+  - script: |
+      source activate base
+      conda install -n base -c conda-forge --quiet --yes conda-forge-ci-setup=2 conda-build shyaml
+    displayName: 'Add conda-forge-ci-setup=2'
+
+  - script: |
+      source activate base
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.3.2, and conda-forge-pinning 2019.03.18
       echo "Configuring conda."
 
       setup_conda_rc ./ ./recipe ./.ci_support/${CONFIG}.yaml
@@ -91,41 +113,57 @@ jobs:
 
   - script: |
 <<<<<<< HEAD
+<<<<<<< HEAD
       source activate base
 =======
       export PATH=$(Build.StagingDirectory)/miniconda/bin:$PATH
       set -x -e
 >>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04
+=======
+      source activate base
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.3.2, and conda-forge-pinning 2019.03.18
       mangle_compiler ./ ./recipe ./.ci_support/${CONFIG}.yaml
     displayName: Mangle compiler
 
   - script: |
 <<<<<<< HEAD
+<<<<<<< HEAD
       source activate base
 =======
       export PATH=$(Build.StagingDirectory)/miniconda/bin:$PATH
       set -x -e
 >>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04
+=======
+      source activate base
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.3.2, and conda-forge-pinning 2019.03.18
       make_build_number ./ ./recipe ./.ci_support/${CONFIG}.yaml
     displayName: Generate build number clobber file
 
   - script: |
 <<<<<<< HEAD
-      source activate base
-=======
-      export PATH=$(Build.StagingDirectory)/miniconda/bin:$PATH
-      set -x -e
->>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04
-      conda build ./recipe -m ./.ci_support/${CONFIG}.yaml --clobber-file ./.ci_support/clobber_${CONFIG}.yaml
-    displayName: Build recipe
-
-  - script: |
 <<<<<<< HEAD
       source activate base
 =======
       export PATH=$(Build.StagingDirectory)/miniconda/bin:$PATH
       set -x -e
 >>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04
+=======
+      source activate base
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.3.2, and conda-forge-pinning 2019.03.18
+      conda build ./recipe -m ./.ci_support/${CONFIG}.yaml --clobber-file ./.ci_support/clobber_${CONFIG}.yaml
+    displayName: Build recipe
+
+  - script: |
+<<<<<<< HEAD
+<<<<<<< HEAD
+      source activate base
+=======
+      export PATH=$(Build.StagingDirectory)/miniconda/bin:$PATH
+      set -x -e
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04
+=======
+      source activate base
+>>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.3.2, and conda-forge-pinning 2019.03.18
       upload_package ./ ./recipe ./.ci_support/${CONFIG}.yaml
     displayName: Upload recipe
     env:
