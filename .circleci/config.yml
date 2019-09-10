@@ -5,32 +5,11 @@
 version: 2
 
 jobs:
-<<<<<<< HEAD
-<<<<<<< HEAD
   build:
     working_directory: ~/test
     machine: true
     steps:
-=======
-  build_linux_:
-=======
-  build:
->>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.3.2, and conda-forge-pinning 2019.03.18
-    working_directory: ~/test
-    machine: true
-    steps:
       - run:
-<<<<<<< HEAD
-          name: Fast finish outdated PRs and merge PRs
-          command: |
-            ./.circleci/fast_finish_ci_pr_build.sh
-            ./.circleci/checkout_merge_commit.sh
-      - run:
-          command: docker pull condaforge/linux-anvil-comp7
->>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04
-      - run:
-=======
->>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.3.2, and conda-forge-pinning 2019.03.18
           # The Circle-CI build should not be active, but if this is not true for some reason, do a fast finish.
           command: exit 0
 
@@ -38,18 +17,8 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.3.2, and conda-forge-pinning 2019.03.18
       - build:
           filters:
             branches:
               ignore:
                 - /.*/
-<<<<<<< HEAD
-=======
-      - build_linux_
->>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.04
-=======
->>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.3.2, and conda-forge-pinning 2019.03.18

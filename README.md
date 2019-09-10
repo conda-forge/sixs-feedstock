@@ -48,7 +48,6 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-<<<<<<< HEAD
               <td>osx_fortran_compiler_version4</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=1922&branchName=master">
@@ -60,12 +59,6 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=1922&branchName=master">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/sixs-feedstock?branchName=master&jobName=osx&configuration=osx_fortran_compiler_version7" alt="variant">
-=======
-              <td>osx</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=1922&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/sixs-feedstock?branchName=master&jobName=osx&configuration=osx_" alt="variant">
->>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.3.2, and conda-forge-pinning 2019.03.18
                 </a>
               </td>
             </tr><tr>
@@ -81,10 +74,12 @@ Current build status
       </details>
     </td>
   </tr>
-<<<<<<< HEAD
-![ppc64le disabled](https://img.shields.io/badge/ppc64le-disabled-lightgrey.svg)
-=======
->>>>>>> MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.3.2, and conda-forge-pinning 2019.03.18
+  <tr>
+    <td>Linux_ppc64le</td>
+    <td>
+      <img src="https://img.shields.io/badge/ppc64le-disabled-lightgrey.svg" alt="ppc64le disabled">
+    </td>
+  </tr>
 </table>
 
 Current release info
