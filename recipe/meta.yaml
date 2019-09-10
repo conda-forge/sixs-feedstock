@@ -1,18 +1,17 @@
-{% set name = "sixs" %}
-{% set version = "1.1" %}
-{% set sha256 = "4253664bfed35a659ac602d4472780df7c665d67021d495327f47eb7325a2d7e" %}
+{% set version = "1.1.2" %}
 
 package:
-  name: {{ name|lower }}
+  name: sixs
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://bitbucket.org/petebunting/6s/get/Version%201.1.tar.gz
-  sha256: {{ sha256 }}
+  url: https://bitbucket.org/petebunting/6s/downloads/sixs-{{ version }}.tar.gz
+  sha256: 499559146199471fee99eff0ed603ecb0f7d7cf5a0011436edfcb969d641d683
+  patches:
+      - no_ffpe-summary.patch  # [osx]
 
 build:
-  number: 1002
+  number: 0
 
 requirements:
   build:
@@ -22,14 +21,13 @@ requirements:
     - {{ compiler('c') }}              # [unix]
     - {{ compiler('cxx') }}            # [unix]
     - {{ compiler('m2w64_c') }}        # [win]
-  host:
   run:
     - m2w64-gcc-libgfortran  # [win]
-
 
 test:
   files:
   - Example_In_1.txt
+  - Example_In_3.txt
 
 about:
   home: https://bitbucket.org/petebunting/6s
