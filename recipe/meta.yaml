@@ -21,7 +21,6 @@ requirements:
     - {{ compiler('c') }}              # [unix]
     - {{ compiler('cxx') }}            # [unix]
     - {{ compiler('m2w64_c') }}        # [win]
-  host:
   run:
     - m2w64-gcc-libgfortran  # [win]
 
