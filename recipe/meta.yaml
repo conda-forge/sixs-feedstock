@@ -11,7 +11,7 @@ source:
       - no_ffpe-summary.patch  # [osx]
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -34,6 +34,8 @@ about:
   summary: A basic RT code used for atmospheric correction & atmospheric
     simulations
   license: MIT
+  # https://bitbucket.org/petebunting/6s/issues/1/no-license-information-and-no-license-file
+  # license_file: 
   license_family: MIT
   description:  |
     The 6S code is a basic RT code used for calculation of lookup

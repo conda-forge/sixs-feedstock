@@ -1,17 +1,23 @@
 REM Avoid the the message printed to stderr about what problems are found
 REM which confuses py6s
+
+REM remove chocolatey gfortran
+if "%CI%" == "azure" (
+  rm "C:\ProgramData\Chocolatey\bin\gfortran.exe"
+)
+
 set FFLAGS="-ffpe-summary=none"
 
 set PATH=%PATH:C:\Program Files\Git\usr\bin;=%
 
 :: Configure.
-cmake -G "MinGW Makefiles" -D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% %SRC_DIR%
+cmake -G "MSYS Makefiles" -D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% %SRC_DIR%
 if errorlevel 1 exit 1
 
 :: Build.
-mingw32-make
+make
 if errorlevel 1 exit 1
 
 :: Install.
-mingw32-make install
+make install
 if errorlevel 1 exit 1
