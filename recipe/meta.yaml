@@ -5,8 +5,8 @@ package:
   version: {{ version }}
 
 source:
-  git_url: https://github.com/petebunting/6s.git
-  git_rev: 9c9ec9b
+  git_url: https://github.com/robintw/6S.git
+  git_rev: a876b3d
   git_depth: 1 # (Defaults to -1/not shallow)
   patches:
       - no_ffpe-summary.patch  # [osx]
