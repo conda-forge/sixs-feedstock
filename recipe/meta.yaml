@@ -5,8 +5,9 @@ package:
   version: {{ version }}
 
 source:
-  url: https://bitbucket.org/petebunting/6s/downloads/sixs-{{ version }}.tar.gz
-  sha256: 499559146199471fee99eff0ed603ecb0f7d7cf5a0011436edfcb969d641d683
+  git_url: https://github.com/petebunting/6s.git
+  git_rev: 9c9ec9b
+  git_depth: 1 # (Defaults to -1/not shallow)
   patches:
       - no_ffpe-summary.patch  # [osx]
 
