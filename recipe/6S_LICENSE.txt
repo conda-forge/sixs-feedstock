@@ -1,0 +1,4 @@
+6S has not been released under an official license, however we have had email
+communication from the original authors saying that they are happy for anyone to use it
+and redistribute it. We have tried to persuade them to add a full license, but they argue
+that would actually restrict its use.
