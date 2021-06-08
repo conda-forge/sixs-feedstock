@@ -21,7 +21,7 @@ requirements:
     - {{ compiler('c') }}              # [unix]
     - {{ compiler('cxx') }}            # [unix]
     - {{ compiler('m2w64_c') }}        # [win]
-    - posix # [win]
+    - posix  # [win]
   run:
     - m2w64-gcc-libgfortran  # [win]
 
