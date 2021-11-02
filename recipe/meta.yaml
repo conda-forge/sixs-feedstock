@@ -11,11 +11,12 @@ source:
       - no_ffpe-summary.patch  # [osx]
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
     - cmake
+    - make
     - {{ compiler('fortran') }}        # [unix]
     - {{ compiler('m2w64_fortran') }}  # [win]
     - {{ compiler('c') }}              # [unix]
