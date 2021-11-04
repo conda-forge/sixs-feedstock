@@ -7,3 +7,4 @@ build_platform:
 test_on_native_only: true
 provider:
   linux_aarch64: default
+  linux_ppc64l: default
