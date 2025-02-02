@@ -17,9 +17,10 @@ requirements:
   build:
     - cmake
     - make
-    - {{ compiler('fortran') }}        # [unix]
-    - {{ compiler('c') }}              # [unix]
-    - {{ compiler('cxx') }}            # [unix]
+    - {{ compiler('fortran') }}
+    - {{ compiler('c') }}
+    - {{ stdlib('c') }}
+    - {{ compiler('cxx') }}
 
 test:
   files:
